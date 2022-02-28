@@ -1,0 +1,46 @@
+@model IEnumerable<StudentList.Core.Models.Student>
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Lista studentów</h2>
+        </div>
+    </div>
+
+    @if (Model?.Count() > 0)
+    {
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Imię</th>
+                    <th>Nazwisko</th>
+                    <th>Numer Indeksu</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var student in Model)
+                {
+                    <tr>
+                        <td>@student.FirstName</td>
+                        <td>@student.LastName</td>
+                        <td>@student.IdentityNumber</td>
+                        <td>
+                            <div>
+                                <a asp-controller="Students" asp-action="Edit" asp-route-Id="@student.Id" class="btn btn-primary">Edytuj</a>
+                                <a asp-controller="Students" asp-action="DeletePost" asp-route-Id="@student.Id"  class="btn btn-danger">Usuń</a>
+                            </div>
+                        <td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>Lista jest pusta</p>
+    }
+    <div>
+        <a asp-controller="Students" asp-action="Add" class="btn btn-primary">Dodaj studenta</a>
+    </div>
+</div>

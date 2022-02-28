@@ -1,0 +1,42 @@
+@model StudentList.Core.Models.Classroom
+@using StudentList.Core.Models
+ 
+<form method="post" asp-action="Create">
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="form-group row">
+                <h2 class="text-black-50 pl-3">Dodaj przedmiot</h2>
+
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label col-md-3 col-sm-3 col-xs-12">Nazwa</label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Form" class="control-label col-md-3 col-sm-3 col-xs-12">Forma</label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <select asp-for="Form" asp-items="Html.GetEnumSelectList<Classroom.ClassroomForm>()">
+                                <option selected="selected" value=""></option>
+                            </select>
+                            <span asp-validation-for="Form" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <br>
+                        <div class="col">
+                            <input type="submit" class="btn btn-success" value="Dodaj" />
+                        </div>
+                        <br>
+                        <div class="col">
+                            <a class="btn btn-danger" asp-action="Index">Cofnij</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

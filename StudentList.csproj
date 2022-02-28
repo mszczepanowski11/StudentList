@@ -1,0 +1,68 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Microsoft.EntityFrameworkCore" />
+    <None Remove="Microsoft.EntityFrameworkCore.Tools" />
+    <None Remove="Microsoft.EntityFrameworkCore.SqlServer" />
+    <None Remove="EntityFramework" />
+    <None Remove="Core\" />
+    <None Remove="Core\Models\" />
+    <None Remove="Microsoft.VisualStudio.Web.CodeGeneration.Design" />
+    <None Remove="Views\Patients\" />
+    <None Remove="Microsoft.EntityFrameworkCore.Design" />
+    <None Remove="Microsoft.Owin.Security.OAuth" />
+    <None Remove="Microsoft.AspNet.Identity.Owin" />
+    <None Remove="Microsoft.AspNet.Identity.EntityFramework" />
+    <None Remove="Microsoft.Owin.Host.SystemWeb" />
+    <None Remove="Data\" />
+    <None Remove="Data\EFRepositories\" />
+    <None Remove="Core\Repositories\" />
+    <None Remove="Views\Prescriptions\" />
+    <None Remove="Views\Medicines\" />
+    <None Remove="Views\Doctors\" />
+    <None Remove="Core\ViewModels\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="1.1.0-msbuild3-final">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.0" />
+    <PackageReference Include="EntityFramework" Version="6.4.4" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.2">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Owin.Security.OAuth" Version="4.2.0" />
+    <PackageReference Include="Microsoft.AspNet.Identity.EntityFramework" Version="2.2.3" />
+    <PackageReference Include="Microsoft.Owin.Host.SystemWeb" Version="4.2.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Core\" />
+    <Folder Include="Core\Models\" />
+    <Folder Include="Views\Groups\" />
+    <Folder Include="Data\" />
+    <Folder Include="Data\EFRepositories\" />
+    <Folder Include="Core\Repositories\" />
+    <Folder Include="Views\Timetables\" />
+    <Folder Include="Views\Classrooms\" />
+    <Folder Include="Views\Students\" />
+    <Folder Include="Core\ViewModels\" />
+    <Folder Include="wwwroot\lib\jquery-multiselect\" />
+    <Folder Include="bin\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\lib\jquery-multiselect\" />
+  </ItemGroup>
+</Project>

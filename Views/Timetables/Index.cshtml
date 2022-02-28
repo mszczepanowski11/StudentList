@@ -1,0 +1,84 @@
+@model StudentList.Core.ViewModels.TimetableDetailView
+@{
+    ViewData["Title"] = "Plany zajęć";
+}
+<h1>@ViewData["Title"]</h1>
+
+
+<div class="container p-3">
+
+    <br>
+
+    @if (5 > 0)
+    {
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+
+                    <th>
+                        Nazwa grupy
+                    </th>
+                    <th>
+                        
+                    </th>
+                    <th>
+                        Członkowie
+                    </th>
+                    <th>
+                       
+                    </th>
+                    <th></th>
+                    <th></th>
+                    <th>Przedmiot</th>
+                    <th>Godzina</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var timetable in Model.Timetables)
+                {
+                <tr>
+                
+                    <td>@timetable.Group.Name</td>
+
+                     <td>
+                        @foreach(var timetable_student in timetable.Students)
+                            {   
+                                <td>
+                                   @timetable_student.FirstName @timetable_student.LastName
+                                </td>
+                            }
+
+                    </td>
+                    <td>
+                        @foreach(var timetable_classroom in timetable.Classrooms)
+                            {
+                                <td>
+                                   @timetable_classroom.Name
+                                </td>
+                            }
+                    </td>
+                    <td>
+                        @timetable.Time
+                    </td>
+                    <td>
+                        <div>
+             
+                <a asp-controller="Timetables" asp-action="DeletePost" asp-route-Id="@timetable.Id" class="btn btn-danger">Usuń</a>
+            </div>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+
+    } 
+    else
+    {
+        <p>Lista jest pusta</p>
+
+    }
+    <div>
+        <a asp-controller="Timetables" asp-action="Add" asp-route-Id="@ViewBag.GroupId" class="btn btn-primary">Dodaj plan dla grupy</a>
+    </div>
+</div>

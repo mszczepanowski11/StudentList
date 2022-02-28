@@ -1,0 +1,62 @@
+﻿@model StudentList.Core.Models.Timetable
+
+
+<form method="post" asp-action="Create">
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="form-group row">
+
+                <h2 class="text-black-50 pl-3">Plan zajęć</h2>
+
+
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Students, "Członkowie", new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("StudentId", new SelectList(ViewBag.StudentList, "Id", "IdentityNumber"), new { @class = "form-control", multiple = "multiple", id = "student_list" })
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Classrooms, "Nazwa przedmiotu", new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("ClassroomId", new SelectList(ViewBag.ClassroomList, "Id", "Name"), new { @class = "form-control", id = "classroom_list" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Time" class="control-label col-md-3 col-sm-3 col-xs-12">Godzina</label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input asp-for="Time" class="form-control" />
+                        <span asp-validation-for="Time" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <br>
+                    <div class="col">
+                        <input type="submit" class="btn btn-success" value="Dodaj" />
+                    </div>
+                    <br>
+                    <div class="col">
+                        <a class="btn btn-danger" asp-action="Index">Powrót</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <input type="hidden" name="GroupId" value="@ViewBag.GroupId" />
+
+</form>
+
+@section Scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#classroom_list').multiselect();
+            $('#student_list').multiselect();
+    });</script>
+
+}
